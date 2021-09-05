@@ -1,0 +1,23 @@
+<h2 mat-dialog-title style="text-align: center">Partita conclusa</h2>
+<mat-dialog-content>
+  {{
+    data.numberOfPlayers > 1
+      ? getPlayerValue("name", true) +
+        " ha vinto " +
+        getPlayerValue("points", true) +
+        " a " +
+        getPlayerValue("points", false) +
+        ". Volete iniziare una nuova partita?"
+      : "Hai completato la partita in " +
+        data.matchCount +
+        " mosse. Vuoi iniziare una nuova partita?"
+  }}
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: space-around">
+  <button mat-raised-button color="primary" (click)="startNewGame('finish')">
+    No
+  </button>
+  <button mat-raised-button color="primary" (click)="startNewGame('new')">
+    Sì
+  </button>
+</mat-dialog-actions>
