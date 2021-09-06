@@ -1,13 +1,9 @@
 <h1 style="text-align: center">MEMORY CARD GAME</h1>
-<button
-  *ngIf="gameStarted"
-  mat-raised-button
-  color="primary"
-  class="button__position"
-  (click)="choiceNumberOfPlayers()"
->
-  NUOVA PARTITA
-</button>
+<div *ngIf="gameStarted" style="text-align: center; margin-bottom: 15px;">
+  <button mat-raised-button color="primary" (click)="choiceNumberOfPlayers()">
+    NUOVA PARTITA
+  </button>
+</div>
 
 <p
   style="text-align: center; width: 80%"
@@ -17,9 +13,9 @@
     gameStarted
       ? "Scopri due carte; se le carte scelte sono diverse verranno ricoperte " +
         (numberOfPlayers > 1 ? "e il turno passerà all'avversario" : "") +
-        ", altrimenti rimarranno scoperte " +
+        ", altrimenti rimarranno scoperte" +
         (numberOfPlayers > 1
-          ? "e il turno rimarrà allo stesso giocatore"
+          ? " e il turno rimarrà allo stesso giocatore"
           : "") +
         "."
       : "Premi il pulsante per cominciare una partita!"
@@ -44,13 +40,8 @@
   <h3 *ngIf="numberOfPlayers > 1">TURNO {{ getPlayerInTurn() }}</h3>
 </div>
 
-<div *ngIf="!gameStarted">
-  <button
-    mat-raised-button
-    color="primary"
-    style="margin-left: 41%; width: 18%"
-    (click)="choiceNumberOfPlayers()"
-  >
+<div *ngIf="!gameStarted" style="text-align: center">
+  <button mat-raised-button color="primary" (click)="choiceNumberOfPlayers()">
     Inizia una partita
   </button>
 </div>

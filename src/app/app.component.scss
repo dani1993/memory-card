@@ -5,16 +5,18 @@
   justify-content: center;
 }
 
-.grid6 {
-  grid-template-columns: repeat(6, 150px);
+@media (max-width: 1249px) {
+  .grid {
+    grid-template-columns: repeat(2, 150px);
+  }
 }
 
-.grid7 {
-  grid-template-columns: repeat(7, 150px);
-}
+@media (min-width: 1250px) {
+  .grid6 {
+    grid-template-columns: repeat(6, 150px);
+  }
 
-.button__position {
-  position: absolute;
-  top: 23px;
-  right: 5%;
+  .grid7 {
+    grid-template-columns: repeat(7, 150px);
+  }
 }

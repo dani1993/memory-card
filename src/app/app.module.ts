@@ -11,6 +11,7 @@ import { CardComponent } from './components/card/card.component';
 import { NumberOfPlayersComponent } from './components/number-of-players/number-of-players.component';
 import { RestartComponent } from './components/restart/restart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     MatButtonModule,
     MatDialogModule,
     MatIconModule,
