@@ -2,7 +2,7 @@
   "name": "memory-card-game",
   "version": "0.0.0",
   "engines": {
-    "node": ">=10.13.0 <=12.11.0"
+    "node": "10.13.0"
   },
   "scripts": {
     "ng": "ng",
