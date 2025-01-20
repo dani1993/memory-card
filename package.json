@@ -4,6 +4,7 @@
   "engines": {
     "node": "10.13.0"
   },
+  "engineStrict": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
