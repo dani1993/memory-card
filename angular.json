@@ -124,5 +124,8 @@
         }
       }
     }},
-  "defaultProject": "memory-card-game"
+  "defaultProject": "memory-card-game",
+  "cli": {
+    "analytics": false
+  }
 }

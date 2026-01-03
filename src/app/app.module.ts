@@ -32,6 +32,5 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [NumberOfPlayersComponent, RestartComponent],
 })
 export class AppModule {}
