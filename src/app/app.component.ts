@@ -133,7 +133,7 @@ export class AppComponent {
 
   private matchCards(): void {
     const timeout =
-      this.rotatedCards[0].image !== this.rotatedCards[1].image ? 5000 : 0;
+      this.rotatedCards[0].image !== this.rotatedCards[1].image ? 2000 : 0;
 
     if (
       this.numberOfPlayers === 2 &&

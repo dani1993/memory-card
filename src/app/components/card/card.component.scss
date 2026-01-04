@@ -4,6 +4,11 @@
   @media (max-width: 1249px) {
     height: 130px;
   }
+
+  @media (max-width: 400px) {
+    height: 90px;
+  }
+
   cursor: pointer;
   transform-style: preserve-3d;
 }
