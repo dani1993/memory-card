@@ -1,59 +1,6 @@
 <h1 style="text-align: center">MEMORY CARD GAME</h1>
-<div *ngIf="gameStarted" style="text-align: center; margin-bottom: 15px;">
-  <button mat-raised-button color="primary" (click)="choiceNumberOfPlayers()">
-    NUOVA PARTITA
-  </button>
-</div>
 
-<p
-  style="text-align: center; width: 80%"
-  [ngStyle]="{ margin: gameStarted ? '0 auto' : '0 auto 100px' }"
->
-  {{
-    gameStarted
-      ? "Scopri due carte; se le carte scelte sono diverse verranno ricoperte " +
-        (numberOfPlayers > 1 ? "e il turno passerà all'avversario" : "") +
-        ", altrimenti rimarranno scoperte" +
-        (numberOfPlayers > 1
-          ? " e il turno rimarrà allo stesso giocatore"
-          : "") +
-        "."
-      : "Premi il pulsante per cominciare una partita!"
-  }}
-</p>
-
-<div *ngIf="gameStarted" style="text-align: center; margin-bottom: 5px">
-  <h3>{{ numberOfPlayers > 1 ? "PUNTEGGIO" : "MOSSE" }}</h3>
-  <h3 style="margin-bottom: 15px">
-    {{
-      numberOfPlayers > 1
-        ? players[0].name +
-          " " +
-          players[0].points +
-          " - " +
-          players[1].points +
-          " " +
-          players[1].name
-        : matchCount
-    }}
-  </h3>
-  <h3 *ngIf="numberOfPlayers > 1">TURNO {{ getPlayerInTurn() }}</h3>
-</div>
-
-<div *ngIf="!gameStarted" style="text-align: center">
-  <button mat-raised-button color="primary" (click)="choiceNumberOfPlayers()">
-    Inizia una partita
-  </button>
-</div>
-
-<div
-  class="grid"
-  [ngClass]="{
-    grid6: numberOfPlayers === 1,
-    grid7: numberOfPlayers > 1
-  }"
-  *ngIf="gameStarted"
->
+<div class="grid grid6">
   <app-card
     *ngFor="let card of gameCards; let id = index"
     [card]="card"

@@ -10,7 +10,7 @@ import { RestartComponent } from './components/restart/restart.component';
 })
 export class AppComponent {
   gameStarted = false;
-  cards = ['dog', 'cat', 'lion', 'hawk', 'dolphin', 'zebra'];
+  cards = ['ciuccio', 'culla', 'maschio', 'femmina', 'biberon', 'orso'];
 
   rotatedCards = [];
   gameCards = [];
@@ -24,7 +24,21 @@ export class AppComponent {
     { points: 0, name: '', turn: false },
   ];
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) {
+    this.initGame();
+
+    // TODO: togliere
+    // const ref = this.dialog.open(RestartComponent, {
+    //   height: '90%',
+    //   data: {
+    //     matchCount: this.matchCount,
+    //     numberOfPlayers: this.numberOfPlayers,
+    //     players: this.players,
+    //   },
+    //   disableClose: true,
+    //   autoFocus: false,
+    // });
+  }
 
   choiceNumberOfPlayers(): void {
     const ref = this.dialog.open(NumberOfPlayersComponent, {
@@ -148,6 +162,7 @@ export class AppComponent {
 
       if (!covered) {
         const ref = this.dialog.open(RestartComponent, {
+          height: '90%',
           data: {
             matchCount: this.matchCount,
             numberOfPlayers: this.numberOfPlayers,
