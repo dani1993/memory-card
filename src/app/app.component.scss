@@ -2,6 +2,10 @@
   display: grid;
   gap: 16px;
 
+  @media (max-width: 400px) {
+    column-gap: 8px;
+  }
+
   justify-content: center;
 }
 
@@ -13,7 +17,7 @@
 
 @media (max-width: 400px) {
   .grid {
-    grid-template-columns: repeat(4, 70px);
+    grid-template-columns: repeat(4, 80px);
   }
 }
 

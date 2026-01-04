@@ -10,7 +10,7 @@ import { RestartComponent } from './components/restart/restart.component';
 })
 export class AppComponent {
   gameStarted = false;
-  cards = ['ciuccio', 'culla', 'maschio', 'femmina', 'biberon', 'orso'];
+  cards = ['ciuccio', 'culla', 'passeggino', 'biberon', 'orso'];
 
   rotatedCards = [];
   gameCards = [];
@@ -26,33 +26,6 @@ export class AppComponent {
 
   constructor(private dialog: MatDialog) {
     this.initGame();
-  }
-
-  choiceNumberOfPlayers(): void {
-    const ref = this.dialog.open(NumberOfPlayersComponent, {
-      autoFocus: false,
-    });
-
-    ref
-      .afterClosed()
-      .subscribe((resp: { numbers: number; names: string[] }) => {
-        if (resp) {
-          this.numberOfPlayers = resp.numbers;
-
-          // tolgo la carta aggiunta per i due giocatori
-          this.cards = this.cards.filter((card) => card !== 'jolly');
-
-          // se i giocatori sono due, aggiungo una coppia di carte per scongiurare il rischio di pareggio
-          if (resp.numbers > 1) {
-            this.players[0].name = resp.names[0];
-            this.players[1].name = resp.names[1];
-
-            this.cards.push('jolly');
-          }
-
-          this.initGame();
-        }
-      });
   }
 
   getPlayerInTurn() {
@@ -80,6 +53,8 @@ export class AppComponent {
       this.gameCards.push({ ...c });
       this.gameCards.push({ ...c });
     });
+
+    this.gameCards.push({ image: 'boy_girl', condition: 'covered' });
 
     this.gameCards = this.shuffle(this.gameCards);
   }
@@ -146,9 +121,9 @@ export class AppComponent {
     this.timer = setTimeout(() => {
       this.recoverCards();
 
-      const covered = this.gameCards.find((c) => c.condition === 'covered');
+      const covered = this.gameCards.filter((c) => c.condition === 'covered');
 
-      if (!covered) {
+      if (covered.length === 1 && covered[0].image === 'boy_girl') {
         const ref = this.dialog.open(RestartComponent, {
           data: {
             matchCount: this.matchCount,
