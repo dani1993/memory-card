@@ -1,5 +1,9 @@
 .card {
   height: 200px;
+
+  @media (max-width: 1249px) {
+    height: 130px;
+  }
   cursor: pointer;
   transform-style: preserve-3d;
 }

@@ -26,18 +26,6 @@ export class AppComponent {
 
   constructor(private dialog: MatDialog) {
     this.initGame();
-
-    // TODO: togliere
-    // const ref = this.dialog.open(RestartComponent, {
-    //   height: '90%',
-    //   data: {
-    //     matchCount: this.matchCount,
-    //     numberOfPlayers: this.numberOfPlayers,
-    //     players: this.players,
-    //   },
-    //   disableClose: true,
-    //   autoFocus: false,
-    // });
   }
 
   choiceNumberOfPlayers(): void {
@@ -162,7 +150,6 @@ export class AppComponent {
 
       if (!covered) {
         const ref = this.dialog.open(RestartComponent, {
-          height: '90%',
           data: {
             matchCount: this.matchCount,
             numberOfPlayers: this.numberOfPlayers,

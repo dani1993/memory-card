@@ -1,4 +1,19 @@
-::ng-deep .mat-dialog-content {
-  padding: 0;
-  max-height: none;
+.result-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  column-gap: 10px;
+
+  span {
+    font-family: "Brush Script MT", cursive;
+    font-size: 60px;
+  }
+
+  img {
+    max-width: 80vw;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+  }
 }

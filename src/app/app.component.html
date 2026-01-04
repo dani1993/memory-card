@@ -1,6 +1,12 @@
-<h1 style="text-align: center">MEMORY CARD GAME</h1>
+<h1 class="text title">
+  <span style="color: #0e49b5">Boy</span> or
+  <span style="color: #ff99be">Girl</span>
+</h1>
+<p class="text subtext">
+  Gioca e scopri se sono un maschietto o una femminuccia
+</p>
 
-<div class="grid grid6">
+<div class="grid grid6" style="margin-top: 15px">
   <app-card
     *ngFor="let card of gameCards; let id = index"
     [card]="card"
