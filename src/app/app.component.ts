@@ -81,6 +81,20 @@ export class AppComponent {
 
       if (this.rotatedCards.length > 1) {
         this.matchCards();
+      } else {
+        const covered = this.gameCards.find((c) => c.condition === 'covered');
+
+        if (!covered && this.rotatedCards[0].image === 'boy_girl') {
+          this.dialog.open(RestartComponent, {
+            data: {
+              matchCount: this.matchCount,
+              numberOfPlayers: this.numberOfPlayers,
+              players: this.players,
+            },
+            disableClose: true,
+            autoFocus: false,
+          });
+        }
       }
     } else if (this.rotatedCards.length === 2 && this.timer) {
       clearTimeout(this.timer);
@@ -120,28 +134,6 @@ export class AppComponent {
 
     this.timer = setTimeout(() => {
       this.recoverCards();
-
-      const covered = this.gameCards.filter((c) => c.condition === 'covered');
-
-      if (covered.length === 1 && covered[0].image === 'boy_girl') {
-        const ref = this.dialog.open(RestartComponent, {
-          data: {
-            matchCount: this.matchCount,
-            numberOfPlayers: this.numberOfPlayers,
-            players: this.players,
-          },
-          disableClose: true,
-          autoFocus: false,
-        });
-
-        ref.afterClosed().subscribe((resp: string) => {
-          if (resp === 'new') {
-            this.initGame();
-          } else if (resp === 'finish') {
-            this.gameStarted = false;
-          }
-        });
-      }
     }, timeout);
   }
 }
