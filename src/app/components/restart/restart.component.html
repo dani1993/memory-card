@@ -1,4 +1,9 @@
 <div class="result-text">
-  <span>Sono Greta</span>
+  <span *ngIf="data.rightChoice"
+    >Bravo, hai indovinato!<br />Sono una femminuccia e mi chiamo Greta!</span
+  >
+  <span *ngIf="!data.rightChoice"
+    >Hai sbagliato!<br />Sono una femminuccia e mi chiamo Greta!</span
+  >
   <img src="assets/femmina.png" />
 </div>

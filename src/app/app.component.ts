@@ -18,6 +18,7 @@ export class AppComponent {
   timer: any;
 
   numberOfPlayers: number;
+  genderChoice = '';
 
   players: { points: number; name: string; turn: boolean }[] = [
     { points: 0, name: '', turn: true },
@@ -25,7 +26,18 @@ export class AppComponent {
   ];
 
   constructor(private dialog: MatDialog) {
-    this.initGame();
+    const ref = this.dialog.open(NumberOfPlayersComponent, {
+      autoFocus: false,
+      disableClose: true,
+    });
+
+    ref.afterClosed().subscribe((resp: { gender: string }) => {
+      if (resp) {
+        this.genderChoice = resp.gender;
+
+        this.initGame();
+      }
+    });
   }
 
   getPlayerInTurn() {
@@ -90,6 +102,7 @@ export class AppComponent {
               matchCount: this.matchCount,
               numberOfPlayers: this.numberOfPlayers,
               players: this.players,
+              rightChoice: this.genderChoice === 'female',
             },
             disableClose: true,
             autoFocus: false,

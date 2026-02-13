@@ -1,49 +1,24 @@
-<h2 mat-dialog-title style="text-align: center">Inizia una partita</h2>
+<!-- <h2 mat-dialog-title style="text-align: center">Inizia una partita</h2> -->
 <mat-dialog-content>
-  <div *ngIf="!setPlayerNames">Giochi da solo o con un amico?</div>
-
-  <div *ngIf="setPlayerNames">
-    Inserisci i nomi dei giocatori
-
-    <form [formGroup]="namesForm" style="margin-top: 10px">
-      <mat-form-field appearance="outline" style="margin-right: 15px">
-        <mat-label>Nome primo giocatore</mat-label>
-        <input
-          matInput
-          placeholder="Nome primo giocatore"
-          formControlName="firstPlayerName"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Nome secondo giocatore</mat-label>
-        <input
-          matInput
-          placeholder="Nome secondo giocatore"
-          formControlName="secondPlayerName"
-        />
-      </mat-form-field>
-    </form>
-  </div>
+  <div class="text">Indovina se sono un maschietto o una femminuccia!</div>
 </mat-dialog-content>
 <mat-dialog-actions style="justify-content: space-around">
-  <div *ngIf="!setPlayerNames">
-    <button mat-raised-button color="primary" (click)="choicePlayers(1)">
-      Da solo
-    </button>
-    <button mat-raised-button color="primary" (click)="setPlayerNames = true">
-      Con un amico
-    </button>
-  </div>
-
-  <div *ngIf="setPlayerNames">
-    <button mat-raised-button color="primary" mat-dialog-close>Annulla</button>
+  <div>
     <button
       mat-raised-button
       color="primary"
-      (click)="choicePlayers(2)"
-      [disabled]="!namesForm.valid"
+      (click)="choiceGender('male')"
+      class="button male-button"
     >
-      Inizia
+      Maschio
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="choiceGender('female')"
+      class="button female-button"
+    >
+      Femmina
     </button>
   </div>
 </mat-dialog-actions>
